@@ -1,8 +1,15 @@
-import {ADD_RACE} from '../constants/AdditionRace';
-import {SET_RACERS_POSITION} from '../constants/RacerPositionSettings';
+import {
+    ADD_RACE,
+    SET_RACERS_POSITION,
+    LOAD_RACES_SUCCESS
+} from '../actions/actionTypes';
+import initialState from '../store/initialState';
 
-const races = (state = [], action) => {
+const races = (state = initialState.races, action) => {
     switch (action.type) {
+        case LOAD_RACES_SUCCESS:
+            return action.payload.races;
+
         case ADD_RACE:
             return [
                 ...state,

@@ -12,7 +12,7 @@ export class RacersList extends React.Component {
         const {racers} = this.props;
 
         return (
-            <div className='table'>
+            <div className='table table-left'>
                 <div className='table-row table-head'>
                     <div className='table-cell'>Racers name</div>
                     <div className='table-cell'>Team</div>
@@ -34,6 +34,6 @@ RacersList.propTypes = {
     racers: PropTypes.arrayOf(PropTypes.shape({
         fullName: PropTypes.string.isRequired,
         team: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired
+        id: PropTypes.string.isRequired
     }).isRequired).isRequired
 };

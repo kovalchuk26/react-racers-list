@@ -12,12 +12,9 @@ export class RacersPosition extends React.Component {
 
     createState(racersPositions) {
         const reducedRacers = racersPositions.reduce((currentState, racer) => {
-            return Object.assign(currentState, Object.defineProperty(currentState, racer.racersName, {
-                value: racer.position,
-                configurable: true,
-                enumerable: true,
-                writable: true
-            }));
+            return Object.assign(currentState, {
+                [racer.racersName]: racer.position.toString()
+            });
         }, {});
 
         return Object.assign({}, reducedRacers, {
@@ -36,9 +33,10 @@ export class RacersPosition extends React.Component {
     }
 
     submit = () => {
-        const {setRacersPosition} = this.props;
+        const {setRacersPosition, updateRaces} = this.props;
 
         setRacersPosition(this.createActionPayload());
+        updateRaces();
     };
 
     createActionPayload() {
@@ -132,12 +130,12 @@ RacersPosition.propTypes = {
     racers: PropTypes.arrayOf(PropTypes.shape({
         fullName: PropTypes.string.isRequired,
         team: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired
+        id: PropTypes.string.isRequired
     }).isRequired).isRequired,
     lastRace: PropTypes.shape({
         serialNumber: PropTypes.number.isRequired,
         venue: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
+        id: PropTypes.string.isRequired,
         racersPositions: PropTypes.arrayOf(PropTypes.shape({
             racersName: PropTypes.string.isRequired,
             position: PropTypes.oneOfType([

@@ -14,7 +14,7 @@ export class AdditionRace extends React.Component {
 
     // todo: add field error
     handleInput = e => {
-        const {addRace} = this.props;
+        const {addRace, updateRaces} = this.props;
         const inputValue = this.input.value;
 
         e.preventDefault();
@@ -24,6 +24,7 @@ export class AdditionRace extends React.Component {
         }
 
         addRace(inputValue, this.state.serialNumber);
+        updateRaces();
 
         this.setState({
             serialNumber: ++this.state.serialNumber
@@ -65,5 +66,6 @@ export class AdditionRace extends React.Component {
 }
 
 AdditionRace.propTypes = {
-    addRace: PropTypes.func.isRequired
+    addRace: PropTypes.func.isRequired,
+    updateRaces: PropTypes.func.isRequired
 };

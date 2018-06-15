@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {RacersPosition} from '../components/RacersPosition';
-import {setRacersPosition} from '../actions';
+import {setRacersPosition, updateRaces} from '../actions';
 
 const mapStateToProps = state => ({
     racers: state.racers,
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    setRacersPosition: (racersPositions) => dispatch(setRacersPosition(racersPositions))
+    setRacersPosition: (racersPositions) => dispatch(setRacersPosition(racersPositions)),
+    updateRaces: () => dispatch(updateRaces())
 });
 
 

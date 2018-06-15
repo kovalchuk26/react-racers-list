@@ -1,3 +1,13 @@
+.table-right {
+    float: right;
+    width: 47%;
+}
+
+.table-left {
+    float: left;
+    width: 50%;
+}
+
 .table {
     display: flex;
     flex-flow: column nowrap;

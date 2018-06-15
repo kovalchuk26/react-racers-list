@@ -1,13 +1,10 @@
 import React from 'react';
-import RacersList from '../containers/RacersListContainer';
-import AdditionRace from '../containers/AdditionRaceContainer';
-import RacersPosition from '../containers/RacersPositionContainer';
+import HomePage from '../containers/HomePageContainer';
+
 
 const App = () => (
     <div>
-        <RacersList />
-        <AdditionRace />
-        <RacersPosition />
+        <HomePage />
     </div>
 );
 

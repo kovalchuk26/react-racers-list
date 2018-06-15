@@ -1,0 +1,195 @@
+.form-right {
+    width: 25%;
+    padding-right: 25%;
+    float: right;
+}
+
+.form-left {
+    width: 25%;
+    padding-left: 25%;
+    float: left;
+}
+
+.header {
+    color: #202124;
+    display: block;
+    font-size: 18px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    padding-top: 20px;
+}
+
+.title {
+    color: #5f6368;
+    display: inline-block;
+    width: 35%;
+    box-sizing: border-box;
+    line-height: 18px;
+    padding: 12px 0px;
+}
+
+.title-value {
+    color: #202124;
+}
+
+.input-field__wrapper {
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.input-field {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #5f6368;
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+/*/------------------------INPUT---------------------*/
+.input-field__placeholder  {
+    color: #5f6368;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.input-field:focus ~ .input-field__placeholder, .input-field:valid ~ .input-field__placeholder {
+    top: -20px;
+    font-size: 14px;
+    color: rgb(59, 86, 206);
+}
+
+.input-bar {
+    position: relative;
+    display: block;
+    width: 215px;
+}
+
+.input-bar:before, .input-bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: rgb(59, 86, 206);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.input-bar:before {
+    left: 50%;
+}
+
+.input-bar:after {
+    right: 50%;
+}
+
+/* active state */
+.input-field:focus ~ .input-bar:before, .input-field:focus ~ .input-bar:after {
+    width: 50%;
+}
+
+.input-highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+/*.input-field:focus ~ .input-highlight {*/
+    /*-webkit-animation: inputHighlighter 0.3s ease;*/
+    /*-moz-animation: inputHighlighter 0.3s ease;*/
+    /*animation: inputHighlighter 0.3s ease;*/
+/*}*/
+
+/*delete animation or fix it*/
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+/*/------------------------SELECT---------------------*/
+
+.select-field {
+    background-color: transparent;
+    width: 100%;
+    padding: 4px 0;
+    font-size: 16px;
+    border: none;
+}
+
+/* Remove focus */
+.select-field:focus {
+    outline: none;
+}
+
+
+/* Use custom arrow */
+.select-field__wrapper .select-field {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.select-field__wrapper {
+    margin-bottom: 35px;
+    width: 215px;
+    position: relative;
+    border-bottom: 1px solid #5f6368;
+}
+
+.select-field__wrapper:after {
+     position: absolute;
+     top: 0.75em;
+     right: 0.5em;
+     width: 0;
+     height: 0;
+     padding: 0;
+     content: '';
+     border-left: .25em solid transparent;
+     border-right: .25em solid transparent;
+     border-top: .375em solid #5f6368;
+     pointer-events: none;
+ }

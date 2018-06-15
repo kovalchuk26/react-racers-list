@@ -1,0 +1,60 @@
+.table-right {
+    float: right;
+    width: 47%;
+}
+
+.table-left {
+    float: left;
+    width: 50%;
+}
+
+.table {
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: .8rem;
+    margin: 0.5rem;
+    line-height: 1.5;
+    border-bottom: 1px solid #5f6368;
+    flex: 1 1 auto;
+}
+
+.table-head {
+    display: none;
+    font-size: 16px;
+    background-color: #f2f2f2;
+}
+
+.table-head > .table-cell {
+    white-space: normal;
+    justify-content: center;
+}
+
+.table-row {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.table-row:nth-of-type(even) {
+    background-color: #f2f2f2;
+}
+
+.table-row:nth-of-type(odd) {
+    background-color: #ffffff;
+}
+
+.table-cell {
+    color: #202124;
+    display: flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0.5em;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0px;
+    white-space: nowrap;
+    border-bottom: 1px solid #5f6368;
+}

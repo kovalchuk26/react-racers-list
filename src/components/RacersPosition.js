@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SubmitButton from './SubmitButton';
-import '../styles/Forms.css';
+import SubmitButton from './common/SubmitButton';
+import '../styles/Forms.less';
 
 export class RacersPosition extends React.Component {
     constructor(props) {
@@ -33,10 +33,9 @@ export class RacersPosition extends React.Component {
     }
 
     submit = () => {
-        const {setRacersPosition, updateRaces} = this.props;
+        const {setRacersPosition} = this.props;
 
         setRacersPosition(this.createActionPayload());
-        updateRaces();
     };
 
     createActionPayload() {
@@ -143,5 +142,6 @@ RacersPosition.propTypes = {
                 PropTypes.string
             ]).isRequired
         })).isRequired
-    })
+    }),
+    setRacersPosition: PropTypes.func.isRequired
 };

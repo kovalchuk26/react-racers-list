@@ -1,8 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 import {combineReducers} from 'redux';
-import races from './races';
 import initialState from '../store/initialState';
-
 
 const teams = (state = initialState.teams, action) => {
     switch (action.type) {
@@ -18,6 +16,16 @@ const racers = (state = initialState.racers, action) => {
     switch (action.type) {
         case actionTypes.LOAD_RACERS_SUCCESS:
             return action.payload.racers;
+
+        default:
+            return state;
+    }
+};
+
+const races = (state = initialState.races, action) => {
+    switch (action.type) {
+        case actionTypes.LOAD_RACES_SUCCESS:
+            return action.payload.races;
 
         default:
             return state;

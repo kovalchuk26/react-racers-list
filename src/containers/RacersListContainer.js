@@ -1,4 +1,4 @@
-import {RacersList} from '../components/RacersList';
+import {RacersList} from '../components/racersList/RacersList';
 import {scoreRatio} from '../constants/scoreRatio';
 import {connect} from 'react-redux';
 

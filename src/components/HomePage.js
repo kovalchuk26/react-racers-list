@@ -10,7 +10,7 @@ const HomePage = ({isLoading, error}) => {
     return (
         <div>
             {isLoading ? (<div>Loading...</div>) :
-                error ? (<div>Error</div>) :
+                error ? (<div>{`Error: ${error.message}`}</div>) :
                     (<Fragment>
                             <RacersList/>
                             <TeamsList/>

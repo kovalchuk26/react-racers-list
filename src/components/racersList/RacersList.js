@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RacerInfo from './RacerInfo';
-import '../styles/RacersList.css';
+import RacersListRow from './RacersListRow';
+import '../../styles/RacersList.less';
 
 export class RacersList extends React.Component {
     constructor(props) {
@@ -20,7 +20,7 @@ export class RacersList extends React.Component {
 
                 </div>
                 {racers.sort((a, b) => b.totalPoints - a.totalPoints).map(racer =>
-                    <RacerInfo
+                    <RacersListRow
                         key={racer.id}
                         {...racer}
                     />

@@ -8,8 +8,6 @@ class TeamsApi {
 
         return fetch(request).then(response => {
             return response.json()
-        }).catch(error => {
-            return error
         });
     }
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/RacersList.css';
+import '../../styles/RacersList.less';
 
-const RacerInfo = ({fullName, team, totalPoints}) => (
+const RacersListRow = ({fullName, team, totalPoints}) => (
     <div className='table-row'>
         <div className='table-cell'>{fullName}</div>
         <div className='table-cell'>{team}</div>
@@ -10,10 +10,10 @@ const RacerInfo = ({fullName, team, totalPoints}) => (
     </div>
 );
 
-RacerInfo.propTypes = {
+RacersListRow.propTypes = {
     fullName: PropTypes.string.isRequired,
     team: PropTypes.string.isRequired,
     totalPoints: PropTypes.number.isRequired
 };
 
-export default RacerInfo
+export default RacersListRow

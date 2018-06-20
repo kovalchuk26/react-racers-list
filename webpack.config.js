@@ -18,8 +18,8 @@ module.exports = {
                 use: ['babel-loader', 'eslint-loader']
             },
             {
-                test: /\.css$/,
-                use: [ 'style-loader', 'css-loader' ]
+                test: /\.less/,
+                use: [ 'style-loader', 'css-loader', 'less-loader' ]
             }
         ]
     },
@@ -36,7 +36,8 @@ module.exports = {
     ],
     devServer: {
         contentBase: './dist',
-        hot: true
+        hot: true,
+        historyApiFallback: true,
     },
     devtool: 'source-map'
 };

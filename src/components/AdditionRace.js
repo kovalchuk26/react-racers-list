@@ -1,20 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SubmitButton from './SubmitButton';
-import '../styles/Forms.css';
+import SubmitButton from './common/SubmitButton';
+import '../styles/Forms.less';
 
 export class AdditionRace extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            serialNumber: 100
+            serialNumber: null
+        }
+    }
+
+    componentDidMount() {
+        if (sessionStorage.hasOwnProperty('serialNumber')) {
+            const valueSerialNumber = sessionStorage.getItem('serialNumber');
+
+            this.setState({
+                serialNumber: JSON.parse(valueSerialNumber) + 1
+            })
+        } else {
+            this.setState({
+                serialNumber: 100
+            })
         }
     }
 
     // todo: add field error
     handleInput = e => {
-        const {addRace, updateRaces} = this.props;
+        const {addRace} = this.props;
         const inputValue = this.input.value;
 
         e.preventDefault();
@@ -23,12 +37,9 @@ export class AdditionRace extends React.Component {
             return;
         }
 
-        addRace(inputValue, this.state.serialNumber);
-        updateRaces();
+        sessionStorage.setItem('serialNumber', JSON.stringify(this.state.serialNumber));
 
-        this.setState({
-            serialNumber: ++this.state.serialNumber
-        });
+        addRace(inputValue, this.state.serialNumber);
 
         this.input.value = '';
     };
@@ -66,6 +77,5 @@ export class AdditionRace extends React.Component {
 }
 
 AdditionRace.propTypes = {
-    addRace: PropTypes.func.isRequired,
-    updateRaces: PropTypes.func.isRequired
+    addRace: PropTypes.func.isRequired
 };

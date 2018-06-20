@@ -1,3 +1,6 @@
+@grey-dark: #333;
+@grey: #555;
+
 .form-right {
     width: 25%;
     padding-right: 25%;
@@ -11,16 +14,22 @@
 }
 
 .header {
-    color: #202124;
+    color: @grey-dark;
     display: block;
-    font-size: 18px;
+
+
+    //todo: add mixin
+    font-size: 14px;
+    text-transform: uppercase;
+
     padding-bottom: 12px;
     padding-left: 24px;
     padding-top: 20px;
 }
 
 .title {
-    color: #5f6368;
+    font-size: 14px;
+    color: @grey;
     display: inline-block;
     width: 35%;
     box-sizing: border-box;
@@ -29,7 +38,8 @@
 }
 
 .title-value {
-    color: #202124;
+    font-size: 14px;
+    color: @grey-dark;
 }
 
 .input-field__wrapper {
@@ -39,12 +49,12 @@
 }
 
 .input-field {
-    font-size: 16px;
+    font-size: 14px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 200px;
     border: none;
-    border-bottom: 1px solid #5f6368;
+    border-bottom: 1px solid @grey;
 }
 
 .input-field:focus {
@@ -53,8 +63,8 @@
 
 /*/------------------------INPUT---------------------*/
 .input-field__placeholder  {
-    color: #5f6368;
-    font-size: 16px;
+    color: @grey;
+    font-size: 14px;
     font-weight: normal;
     position: absolute;
     pointer-events: none;
@@ -68,7 +78,7 @@
 /* active state */
 .input-field:focus ~ .input-field__placeholder, .input-field:valid ~ .input-field__placeholder {
     top: -20px;
-    font-size: 14px;
+    font-size: 0.8rem;
     color: rgb(59, 86, 206);
 }
 
@@ -133,7 +143,7 @@
 
 @-moz-keyframes inputHighlighter {
     from {
-        background: #5264AE;
+        background: rgb(59, 86, 206);
     }
     to {
         width: 0;
@@ -143,7 +153,7 @@
 
 @keyframes inputHighlighter {
     from {
-        background: #5264AE;
+        background: rgb(59, 86, 206);
     }
     to {
         width: 0;
@@ -157,7 +167,7 @@
     background-color: transparent;
     width: 100%;
     padding: 4px 0;
-    font-size: 16px;
+    font-size: 14px;
     border: none;
 }
 
@@ -177,7 +187,7 @@
     margin-bottom: 35px;
     width: 215px;
     position: relative;
-    border-bottom: 1px solid #5f6368;
+    border-bottom: 1px solid @grey;
 }
 
 .select-field__wrapper:after {
@@ -190,6 +200,6 @@
      content: '';
      border-left: .25em solid transparent;
      border-right: .25em solid transparent;
-     border-top: .375em solid #5f6368;
+     border-top: .375em solid @grey;
      pointer-events: none;
  }

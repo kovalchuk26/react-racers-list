@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TeamInfo from './TeamInfo';
-import '../styles/RacersList.css';
+import TeamsListRow from './TeamsListRow';
 
 export class TeamsList extends React.Component {
     constructor(props) {
@@ -19,7 +18,7 @@ export class TeamsList extends React.Component {
 
                 </div>
                 {teams.sort((a, b) => b.totalPoints - a.totalPoints).map(team =>
-                    <TeamInfo
+                    <TeamsListRow
                         key={team.id}
                         {...team}
                     />

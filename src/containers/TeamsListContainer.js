@@ -1,4 +1,4 @@
-import {TeamsList} from '../components/TeamsList';
+import {TeamsList} from '../components/teamsList/TeamsList';
 import {scoreRatio} from '../constants/scoreRatio';
 import {connect} from 'react-redux';
 

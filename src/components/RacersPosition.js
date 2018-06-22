@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SubmitButton from './common/SubmitButton';
-import '../styles/Forms.less';
 
 export class RacersPosition extends React.Component {
     constructor(props) {
@@ -82,45 +81,83 @@ export class RacersPosition extends React.Component {
         const {racers, lastRace} = this.props;
 
         return (
-            <div className='form-left'>
-                <div className='header'>Set racers positions</div>
-                <div className='title'>Races venue:</div>
-                <div className='title-value title'>{lastRace.venue}</div>
+            <div className='section'>
+                <form className='form-container'>
 
-                <div className='title'>Serial number:</div>
-                <div className='title-value title'>{lastRace.serialNumber}</div>
+                    <div className='form-row'>
+                        <div className='header'>Set racers positions</div>
+                    </div>
 
-                <div className='title'>Racer:</div>
-                <div className="select-field__wrapper">
-                    <select
-                        className='select-field'
-                        name="racersName"
-                        id=""
-                        value={this.state.selectedRacer}
-                        onChange={this.handleSelectChange}>
-                        {racers.map(racer => {
-                            return <option key={racer.id}>{racer.fullName}</option>
-                        })}
-                    </select>
-                </div>
+                    <div className='form-container__columns'>
 
-                <div className='input-field__wrapper'>
-                    <input name='racersPosition'
-                           className='input-field'
-                           type="text"
-                           required
-                           value={this.state[this.state.selectedRacer]}
-                           onChange={this.handleInputChange}/>
-                    <span className="input-highlight"></span>
-                    <span className="input-bar"></span>
-                    <label className='input-field__placeholder'>Position</label>
-                </div>
+                        <div className='form-column'>
+                            <div className='form-row'>
+                                <div className='form-content-column'>
+                                    <div className='title'>Races venue:</div>
+                                </div>
+                                <div className='form-content-column'>
+                                    <div className='title-value title'>{lastRace.venue}</div>
+                                </div>
+                            </div>
 
-                <SubmitButton active={true}
-                              buttonText='Set Positions'
-                              onClick={this.submit}/>
+                            <div className='form-row'>
+                                <div className='form-content-column'>
+                                    <div className='title'>Serial number:</div>
+                                </div>
+                                <div className='form-content-column'>
+                                    <div className='title-value title'>{lastRace.serialNumber}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='form-column'>
+                            <div className='form-row form-row__select'>
+                                <div className='form-content-column'>
+                                    <div className='title'>Racer:</div>
+                                </div>
+
+                                <div className='form-content-column'>
+
+                                    <div className="select-field__wrapper">
+                                        <select
+                                            className='select-field'
+                                            name="racersName"
+                                            id=""
+                                            value={this.state.selectedRacer}
+                                            onChange={this.handleSelectChange}>
+                                            {racers.map(racer => {
+                                                return <option key={racer.id}>{racer.fullName}</option>
+                                            })}
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div className='form-row'>
+                                <div className='input-field__wrapper'>
+                                    <input name='racersPosition'
+                                           className='input-field'
+                                           type="text"
+                                           required
+                                           value={this.state[this.state.selectedRacer]}
+                                           onChange={this.handleInputChange}/>
+                                    <span className="input-bar"></span>
+                                    <label className='input-field__placeholder'>Position</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div className='form-row'>
+                        <SubmitButton active={true}
+                                      buttonText='Set Positions'
+                                      onClick={this.submit}/>
+                    </div>
+                </form>
             </div>
-
         )
     }
 }

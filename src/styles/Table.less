@@ -1,0 +1,57 @@
+@import 'Variables';
+
+.table {
+  .box-shadow-mixin();
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: .8rem;
+  margin: 0.5rem;
+  line-height: 1.5;
+  flex: 1 1 auto;
+
+  &-head {
+    display: none;
+    .font-size-mixin();
+    .uppercase-font-mixin();
+  }
+
+  &-cell {
+    color: @grey;
+    display: flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0.5em;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0px;
+    white-space: nowrap;
+
+    &__link > a:hover {
+      color: @blue;
+    }
+  }
+
+  &-head > &-cell {
+    white-space: normal;
+    justify-content: center;
+    background-color: @blue;
+    color: @btn-light-grey;
+  }
+
+  &-row {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+
+    &:nth-of-type(even) {
+      background-color: @light-grey;
+    }
+
+    &:nth-of-type(odd) {
+      background-color: @white;
+    }
+  }
+}

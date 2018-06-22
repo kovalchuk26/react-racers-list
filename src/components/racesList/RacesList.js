@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RacesListRow from './RacesListRow';
+import {Table} from '../common/Table';
 
 export class RacesList extends React.Component {
     constructor(props) {
@@ -11,20 +11,9 @@ export class RacesList extends React.Component {
         const {races} = this.props;
 
         return (
-            <div className='table'>
-                <div className='table-row table-head'>
-                    <div className='table-cell'>Venue</div>
-                    <div className='table-cell'>Races count</div>
-                    <div className='table-cell'>Serial number</div>
-
-                </div>
-                {races.map(race =>
-                    <RacesListRow
-                        key={race.id}
-                        {...race}
-                    />
-                )}
-            </div>
+            <Table headers={['Venue', 'Races Count', 'Serial Number']}
+                   rowsData={races}
+                   firstCellAsLink={true}/>
         )
     }
 }

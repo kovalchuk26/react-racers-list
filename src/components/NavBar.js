@@ -3,19 +3,18 @@ import '../styles/NavBar.less'
 import {Link} from 'react-router-dom';
 
 const NavBar = () => (
-        <div className='navbar-wrapper'>
+    <div className='navbar-wrapper'>
+        <div className='navbar'>
 
-            <div className='navbar navbar-container'>
+            <div className='navbar-icon'></div>
 
-                <div className='title'>Simple React App</div>
+            <nav role='navigation' className='navbar-list'>
+                <Link to='/' className='navbar-item navbar-item__link'>Home</Link>
+                <Link to='/races' className='navbar-item navbar-item__link'>Races List</Link>
+            </nav>
 
-                <nav role='navigation' className='list'>
-                    <Link to='/' className='item -link'>Home</Link>
-                    <Link to='/races' className='item -link'>Races List</Link>
-                </nav>
-
-            </div>
         </div>
+    </div>
 );
 
 export default NavBar

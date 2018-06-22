@@ -4,6 +4,7 @@ import RacersList from '../containers/RacersListContainer';
 import AdditionRace from '../containers/AdditionRaceContainer';
 import RacersPosition from '../containers/RacersPositionContainer';
 import TeamsList from '../containers/TeamsListContainer';
+import '../styles/HomePage.less';
 
 const HomePage = ({isLoading, error}) => {
 
@@ -12,10 +13,14 @@ const HomePage = ({isLoading, error}) => {
             {isLoading ? (<div>Loading...</div>) :
                 error ? (<div>{`Error: ${error.message}`}</div>) :
                     (<Fragment>
-                            <RacersList/>
-                            <TeamsList/>
-                            <AdditionRace/>
-                            <RacersPosition/>
+                            <div className='row-container'>
+                                <RacersList/>
+                                <TeamsList/>
+                            </div>
+                            <div className='row-container'>
+                                <AdditionRace/>
+                                <RacersPosition/>
+                            </div>
                         </Fragment>
                     )}
         </div>

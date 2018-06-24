@@ -1,12 +1,4 @@
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const lessRules = {
-    use: [
-        {loader: 'css-loader'},
-        {loader: 'less-loader'}
-    ]
-};
 
 module.exports = {
     entry: [
@@ -27,7 +19,7 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: ExtractTextPlugin.extract(lessRules)
+                use: ['style-loader', 'css-loader', 'less-loader']
             },
             {
                 test: /\.svg$/,
@@ -44,8 +36,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin('bundle.css')
+        new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
         contentBase: './dist',

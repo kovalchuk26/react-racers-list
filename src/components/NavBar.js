@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import '../styles/NavBar.less';
 
 const NavBar = () => (
     <div className='navbar-wrapper'>

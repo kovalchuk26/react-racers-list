@@ -3,6 +3,8 @@ import {Route, Switch} from 'react-router-dom';
 import HomePage from '../containers/HomePageContainer';
 import RacesPage from './RacesPage';
 import NavBar from './NavBar';
+import '../styles/Forms.less';
+import '../styles/Main.less';
 
 const App = () => (
     <Fragment>

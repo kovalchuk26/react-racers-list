@@ -4,6 +4,7 @@ import RacersList from '../containers/RacersListContainer';
 import AdditionRace from '../containers/AdditionRaceContainer';
 import RacersPosition from '../containers/RacersPositionContainer';
 import TeamsList from '../containers/TeamsListContainer';
+import '../styles/HomePage.less';
 
 const HomePage = ({isLoading, error}) => {
 

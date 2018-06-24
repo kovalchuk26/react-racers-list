@@ -1,7 +1,8 @@
 # react-racers-list
 simple react/redux app
 
+Home Page:
+<img src='src/assets/screenshots/home_page.png' />
 
-![alt tag](https://drive.google.com/open?id=1CHQWyR-uLvFoFwlj7iM08Oj8wCokLIxp "Home Page")
-
-![alt tag](https://drive.google.com/open?id=1s8EfcGT_SZeTSFncaXfg5kvHRNSKw4zz "Racers List Page")
+Racers List Page:
+<img src='src/assets/screenshots/racers_list_page.png' />

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SubmitButton from './common/SubmitButton';
-import '../styles/Forms.less';
 
 export class AdditionRace extends React.Component {
     constructor(props) {
@@ -50,27 +49,39 @@ export class AdditionRace extends React.Component {
 
     render() {
         return (
-            <div className='form-right'>
-                <div className='header'>Create race</div>
-                <form>
-                    <div className='input-field__wrapper'>
-                        <input type='text'
-                               className='input-field'
-                               required
-                               ref={node => this.input = node}/>
-                        <span className="input-highlight"></span>
-                        <span className="input-bar"></span>
-                        <label className='input-field__placeholder'>Venue</label>
+            <div className='section'>
+                <form className='form-container'>
+
+                    <div className='form-row'>
+                        <div className='header'>Create race</div>
                     </div>
-                    <div className='title-wrapper'>
-                        <div className='title'>Serial number:</div>
-                        <div className='title-value title'>{this.state.serialNumber}</div>
+
+                    <div className='form-row'>
+                        <div className='input-field__wrapper'>
+                            <input type='text'
+                                   className='input-field'
+                                   required
+                                   ref={node => this.input = node}/>
+                            <span className="input-bar"></span>
+                            <label className='input-field__placeholder'>Venue</label>
+                        </div>
+                    </div>
+
+                    <div className='form-row'>
+                        <div className='form-content-column'>
+                            <div className='title'>Serial number:</div>
+                        </div>
+                        <div className='form-content-column'>
+                            <div className='title-value title'>{this.state.serialNumber}</div>
+                        </div>
+                    </div>
+
+                    <div className='form-row'>
+                        <SubmitButton active={true}
+                                      buttonText='Create Race'
+                                      onClick={this.handleInput}/>
                     </div>
                 </form>
-
-                <SubmitButton active={true}
-                              buttonText='Create Race'
-                              onClick={this.handleInput}/>
             </div>
         )
     }

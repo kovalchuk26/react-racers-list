@@ -8,17 +8,21 @@ import TeamsList from '../containers/TeamsListContainer';
 const HomePage = ({isLoading, error}) => {
 
     return (
-        <div>
+        <Fragment>
             {isLoading ? (<div>Loading...</div>) :
                 error ? (<div>{`Error: ${error.message}`}</div>) :
                     (<Fragment>
-                            <RacersList/>
-                            <TeamsList/>
-                            <AdditionRace/>
-                            <RacersPosition/>
+                            <div className='row-container'>
+                                <RacersList/>
+                                <TeamsList/>
+                            </div>
+                            <div className='row-container'>
+                                <AdditionRace/>
+                                <RacersPosition/>
+                            </div>
                         </Fragment>
                     )}
-        </div>
+        </Fragment>
     )
 };
 

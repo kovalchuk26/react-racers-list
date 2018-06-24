@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RacersListRow from './RacersListRow';
-import '../../styles/RacersList.less';
+import {Table} from '../common/Table';
 
 export class RacersList extends React.Component {
     constructor(props) {
@@ -12,19 +11,9 @@ export class RacersList extends React.Component {
         const {racers} = this.props;
 
         return (
-            <div className='table table-left'>
-                <div className='table-row table-head'>
-                    <div className='table-cell'>Racers name</div>
-                    <div className='table-cell'>Team</div>
-                    <div className='table-cell'>Total</div>
-
-                </div>
-                {racers.sort((a, b) => b.totalPoints - a.totalPoints).map(racer =>
-                    <RacersListRow
-                        key={racer.id}
-                        {...racer}
-                    />
-                )}
+            <div className='section'>
+                <Table headers={['Racers name', 'Team', 'Total']}
+                       rowsData={racers}/>
             </div>
         )
     }

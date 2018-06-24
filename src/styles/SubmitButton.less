@@ -1,13 +1,11 @@
-/*todo: refactor flex*/
+@import 'Variables';
 
 .button {
   font-size: 0.8rem;
 
   position: relative;
-
   display: block;
   padding: 12px 24px;
-
   overflow: hidden;
 
   border-width: 0;
@@ -15,45 +13,43 @@
   border-radius: 2px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
 
-  background-color: rgb(59, 86, 206);
-  color: #ecf0f1;
+  background-color: @blue;
+  color: @btn-light-grey;
 
   transition: background-color .3s;
-}
 
-.button:hover {
-  background-color: rgb(31, 55, 163);
-}
+  &:hover {
+    background-color: @blue-dark;
+  }
 
-.button > * {
-  position: relative;
-}
+  & > * {
+    position: relative;
+  }
 
-.button:before {
-  content: '';
+  &:before {
+    content: '';
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-  display: block;
-  width: 0;
-  padding-top: 0;
+    display: block;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
 
-  border-radius: 100%;
+    background-color: rgba(236, 240, 241, .3);
 
-  background-color: rgba(236, 240, 241, .3);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
 
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.button:active:before {
-  width: 120%;
-  padding-top: 120%;
-
-  transition: width .2s ease-out, padding-top .2s ease-out;
+  &:active:before {
+    width: 120%;
+    padding-top: 120%;
+    transition: width .2s ease-out, padding-top .2s ease-out;
+  }
 }

@@ -1,4 +1,12 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const lessRules = {
+    use: [
+        {loader: 'css-loader'},
+        {loader: 'less-loader'}
+    ]
+};
 
 module.exports = {
     entry: [
@@ -18,8 +26,12 @@ module.exports = {
                 use: ['babel-loader', 'eslint-loader']
             },
             {
-                test: /\.less/,
-                use: [ 'style-loader', 'css-loader', 'less-loader' ]
+                test: /\.less$/,
+                use: ExtractTextPlugin.extract(lessRules)
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-inline-loader'
             }
         ]
     },
@@ -32,7 +44,8 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin('bundle.css')
     ],
     devServer: {
         contentBase: './dist',

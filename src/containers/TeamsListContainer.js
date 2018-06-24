@@ -53,7 +53,7 @@ function calculateTeamsTotal(teams, racers, races) {
 }
 
 const mapStateToProps = state => ({
-    teams: setTeamsPoints(state.teams, state.racers, state.races)
+    teams: setTeamsPoints(state.teams, state.racers, state.races).sort((a, b) => b.totalPoints - a.totalPoints)
 });
 
 export default connect(

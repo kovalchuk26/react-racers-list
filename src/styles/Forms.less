@@ -1,205 +1,196 @@
-@grey-dark: #333;
-@grey: #555;
+@import 'Variables';
 
-.form-right {
-    width: 25%;
-    padding-right: 25%;
-    float: right;
+.form-container {
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: column nowrap;
+  margin: 0.5em;
+  box-sizing: border-box;
+  padding: 1.5em;
+  .box-shadow-mixin();
+
+  & > .form-row:last-child {
+    padding-bottom: 0;
+  }
+
+  &__columns {
+    display: flex;
+    justify-content: space-between;
+
+    & .form-row {
+      justify-content: flex-start;
+    }
+
+    & .form-content-column {
+      width: 50%;
+      justify-content: space-between;
+    }
+
+    & .input-field__wrapper, & .select-field__wrapper {
+      width: 100%;
+    }
+  }
 }
 
-.form-left {
-    width: 25%;
-    padding-left: 25%;
-    float: left;
+.form-row {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-bottom: 3em;
+
+  &__select {
+    & .form-content-column:nth-of-type(1) {
+      width: 30%;
+    }
+
+    & .form-content-column:nth-of-type(2) {
+      width: 70%;
+    }
+  }
+
+}
+
+.form-content-column {
+  display: flex;
+  width: 25%;
+  justify-content: flex-start;
+
+  &:nth-of-type(2) {
+    justify-content: center;
+  }
+}
+
+.form-column {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 45%;
 }
 
 .header {
-    color: @grey-dark;
-    display: block;
+  color: @blue;
+  .font-size-mixin();
+  .uppercase-font-mixin();
 
-
-    //todo: add mixin
-    font-size: 14px;
-    text-transform: uppercase;
-
-    padding-bottom: 12px;
-    padding-left: 24px;
-    padding-top: 20px;
 }
 
 .title {
-    font-size: 14px;
-    color: @grey;
-    display: inline-block;
-    width: 35%;
-    box-sizing: border-box;
-    line-height: 18px;
-    padding: 12px 0px;
-}
+  .font-size-mixin();
+  color: @grey;
 
-.title-value {
-    font-size: 14px;
-    color: @grey-dark;
-}
-
-.input-field__wrapper {
-    position: relative;
-    margin-bottom: 20px;
-    margin-top: 15px;
-}
-
-.input-field {
-    font-size: 14px;
-    padding: 10px 10px 10px 5px;
-    display: block;
-    width: 200px;
-    border: none;
-    border-bottom: 1px solid @grey;
-}
-
-.input-field:focus {
-    outline: none;
+  &-value {
+    overflow: hidden;
+    word-break: break-word;
+    .font-size-mixin();
+    color: @dark-grey;
+  }
 }
 
 /*/------------------------INPUT---------------------*/
-.input-field__placeholder  {
+
+.input-field {
+  .font-size-mixin();
+  box-sizing: border-box;
+  padding-bottom: 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid @grey;
+
+  &__wrapper {
+    position: relative;
+    width: 50%;
+  }
+
+  &__placeholder {
     color: @grey;
-    font-size: 14px;
+    .font-size-mixin();
     font-weight: normal;
     position: absolute;
     pointer-events: none;
-    left: 5px;
-    top: 10px;
-    transition: 0.2s ease all;
-    -moz-transition: 0.2s ease all;
-    -webkit-transition: 0.2s ease all;
-}
+    top: -5px;
+    .input-transition-mixin();
+  }
 
-/* active state */
-.input-field:focus ~ .input-field__placeholder, .input-field:valid ~ .input-field__placeholder {
-    top: -20px;
+  &:focus {
+    outline: none;
+  }
+
+  &:focus ~ &__placeholder,
+  &:valid ~ &__placeholder {
+    top: -25px;
     font-size: 0.8rem;
-    color: rgb(59, 86, 206);
+    color: @blue;
+  }
+
+  &:focus ~ .input-bar:before,
+  &:focus ~ .input-bar:after {
+    width: 50%;
+  }
 }
 
 .input-bar {
-    position: relative;
-    display: block;
-    width: 215px;
-}
+  position: relative;
+  display: block;
+  width: 100%;
 
-.input-bar:before, .input-bar:after {
+  &:before,
+  &:after {
     content: '';
     height: 2px;
     width: 0;
     bottom: 1px;
     position: absolute;
-    background: rgb(59, 86, 206);
-    transition: 0.2s ease all;
-    -moz-transition: 0.2s ease all;
-    -webkit-transition: 0.2s ease all;
-}
+    background: @blue;
+    .input-transition-mixin();
+  }
 
-.input-bar:before {
+  &:before {
     left: 50%;
-}
+  }
 
-.input-bar:after {
+  &:after {
     right: 50%;
-}
-
-/* active state */
-.input-field:focus ~ .input-bar:before, .input-field:focus ~ .input-bar:after {
-    width: 50%;
-}
-
-.input-highlight {
-    position: absolute;
-    height: 60%;
-    width: 100px;
-    top: 25%;
-    left: 0;
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-/* active state */
-/*.input-field:focus ~ .input-highlight {*/
-    /*-webkit-animation: inputHighlighter 0.3s ease;*/
-    /*-moz-animation: inputHighlighter 0.3s ease;*/
-    /*animation: inputHighlighter 0.3s ease;*/
-/*}*/
-
-/*delete animation or fix it*/
-@-webkit-keyframes inputHighlighter {
-    from {
-        background: #5264AE;
-    }
-    to {
-        width: 0;
-        background: transparent;
-    }
-}
-
-@-moz-keyframes inputHighlighter {
-    from {
-        background: rgb(59, 86, 206);
-    }
-    to {
-        width: 0;
-        background: transparent;
-    }
-}
-
-@keyframes inputHighlighter {
-    from {
-        background: rgb(59, 86, 206);
-    }
-    to {
-        width: 0;
-        background: transparent;
-    }
+  }
 }
 
 /*/------------------------SELECT---------------------*/
 
 .select-field {
-    background-color: transparent;
-    width: 100%;
-    padding: 4px 0;
-    font-size: 14px;
-    border: none;
-}
+  background-color: transparent;
+  width: 100%;
+  padding-bottom: 5px;
+  .font-size-mixin();
+  border: none;
 
-/* Remove focus */
-.select-field:focus {
-    outline: none;
-}
-
-
-/* Use custom arrow */
-.select-field__wrapper .select-field {
-    appearance: none;
-    -webkit-appearance: none;
-}
-
-.select-field__wrapper {
-    margin-bottom: 35px;
-    width: 215px;
+  &__wrapper {
+    display: flex;
+    width: 50%;
+    box-sizing: border-box;
     position: relative;
     border-bottom: 1px solid @grey;
+
+    &:after {
+      position: absolute;
+      top: 0.45em;
+      right: 0.5em;
+      width: 0;
+      height: 0;
+      padding: 0;
+      content: '';
+      border-left: .25em solid transparent;
+      border-right: .25em solid transparent;
+      border-top: .375em solid @grey;
+      pointer-events: none;
+    }
+
+    & .select-field {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
-.select-field__wrapper:after {
-     position: absolute;
-     top: 0.75em;
-     right: 0.5em;
-     width: 0;
-     height: 0;
-     padding: 0;
-     content: '';
-     border-left: .25em solid transparent;
-     border-right: .25em solid transparent;
-     border-top: .375em solid @grey;
-     pointer-events: none;
- }

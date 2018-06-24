@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/NavBar.less'
 import {Link} from 'react-router-dom';
 
 const NavBar = () => (

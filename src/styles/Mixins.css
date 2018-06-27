@@ -1,0 +1,18 @@
+/*mixins*/
+.box-shadow {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.font-size {
+    font-size: 14px;
+}
+
+.uppercase-font {
+    text-transform: uppercase;
+}
+
+.input-transition {
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}

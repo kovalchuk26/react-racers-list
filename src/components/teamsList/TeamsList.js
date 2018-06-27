@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Table} from '../common/Table';
+import styles from '../../styles/HomePage.css';
 
 export class TeamsList extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ export class TeamsList extends React.Component {
         const {teams} = this.props;
 
         return (
-            <div className='section'>
+            <div className={styles.section}>
                 <Table headers={['Team', 'Total']} rowsData={teams}/>
             </div>
         )

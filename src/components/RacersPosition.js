@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SubmitButton from './common/SubmitButton';
+import styles from '../styles/HomePage.css';
+import formStyles from '../styles/Forms.css';
 
 export class RacersPosition extends React.Component {
     constructor(props) {
@@ -81,46 +83,46 @@ export class RacersPosition extends React.Component {
         const {racers, lastRace} = this.props;
 
         return (
-            <div className='section'>
-                <form className='form-container'>
+            <div className={styles.section}>
+                <form className={formStyles.form}>
 
-                    <div className='form-row'>
-                        <div className='header'>Set racers positions</div>
+                    <div className={formStyles.row}>
+                        <div className={formStyles.header}>Set racers positions</div>
                     </div>
 
-                    <div className='form-container__columns'>
+                    <div className={formStyles.columns}>
 
-                        <div className='form-column'>
-                            <div className='form-row'>
-                                <div className='form-content-column'>
-                                    <div className='title'>Races venue:</div>
+                        <div className={formStyles.column}>
+                            <div className={formStyles.row}>
+                                <div className={formStyles.columnsContent}>
+                                    <div className={formStyles.title}>Races venue:</div>
                                 </div>
-                                <div className='form-content-column'>
-                                    <div className='title-value title'>{lastRace.venue}</div>
+                                <div className={formStyles.columnsContent}>
+                                    <div className={formStyles.titlesValue}>{lastRace.venue}</div>
                                 </div>
                             </div>
 
-                            <div className='form-row'>
-                                <div className='form-content-column'>
-                                    <div className='title'>Serial number:</div>
+                            <div className={formStyles.row}>
+                                <div className={formStyles.columnsContent}>
+                                    <div className={formStyles.title}>Serial number:</div>
                                 </div>
-                                <div className='form-content-column'>
-                                    <div className='title-value title'>{lastRace.serialNumber}</div>
+                                <div className={formStyles.columnsContent}>
+                                    <div className={formStyles.titlesValue}>{lastRace.serialNumber}</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className='form-column'>
-                            <div className='form-row form-row__select'>
-                                <div className='form-content-column'>
-                                    <div className='title'>Racer:</div>
+                        <div className={formStyles.column}>
+                            <div className={formStyles.selectInRow}>
+                                <div className={formStyles.columnsContent}>
+                                    <div className={formStyles.title}>Racer:</div>
                                 </div>
 
-                                <div className='form-content-column'>
+                                <div className={formStyles.columnsContent}>
 
-                                    <div className="select-field__wrapper">
+                                    <div className={formStyles.select}>
                                         <select
-                                            className='select-field'
+                                            className={formStyles.selectField}
                                             name="racersName"
                                             id=""
                                             value={this.state.selectedRacer}
@@ -135,23 +137,23 @@ export class RacersPosition extends React.Component {
 
                             </div>
 
-                            <div className='form-row'>
-                                <div className='input-field__wrapper'>
+                            <div className={formStyles.row}>
+                                <div className={formStyles.input}>
                                     <input name='racersPosition'
-                                           className='input-field'
+                                           className={formStyles.inputField}
                                            type="text"
                                            required
                                            value={this.state[this.state.selectedRacer]}
                                            onChange={this.handleInputChange}/>
-                                    <span className="input-bar"></span>
-                                    <label className='input-field__placeholder'>Position</label>
+                                    <span className={formStyles.inputBar}></span>
+                                    <label className={formStyles.inputsPlaceholder}>Position</label>
                                 </div>
                             </div>
 
                         </div>
                     </div>
 
-                    <div className='form-row'>
+                    <div className={formStyles.row}>
                         <SubmitButton active={true}
                                       buttonText='Set Positions'
                                       onClick={this.submit}/>

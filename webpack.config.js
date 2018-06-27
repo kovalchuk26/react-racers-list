@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const values = require('postcss-icss-values');
 
 module.exports = {
     entry: [
@@ -18,8 +19,27 @@ module.exports = {
                 use: ['babel-loader', 'eslint-loader']
             },
             {
-                test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'less-loader']
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            modules: true,
+                            localIdentName: '[name]__[local]___[hash:base64:5]'
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [values]
+                        }
+                    }
+                ]
+
             },
             {
                 test: /\.svg$/,

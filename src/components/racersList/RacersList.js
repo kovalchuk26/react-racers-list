@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Table} from '../common/Table';
+import styles from '../../styles/HomePage.css';
 
 export class RacersList extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ export class RacersList extends React.Component {
         const {racers} = this.props;
 
         return (
-            <div className='section'>
+            <div className={styles.section}>
                 <Table headers={['Racers name', 'Team', 'Total']}
                        rowsData={racers}/>
             </div>

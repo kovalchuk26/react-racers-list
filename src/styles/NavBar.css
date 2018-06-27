@@ -1,0 +1,99 @@
+@value light-grey, grey, dark-grey, blue,
+navbar-height, navbar-border, navbar-item-border-width, navbar-item-border from './Variables.css';
+
+.navbar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar {
+        width: 1140px;
+    }
+}
+
+.wrapper {
+    background-color: light-grey;
+    composes: box-shadow from './Mixins.css';
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.icon {
+    width: 10%;
+    background: url('../assets/react_logo.svg') center no-repeat;
+    background-size: contain;
+}
+
+.list {
+    display: none;
+    flex-flow: row nowrap;
+    align-items: center;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .list {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .list {
+        position: fixed;
+        top: navbar-height;
+        left: 0;
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+        border-top: 1px solid navbar-border;
+        background-color: light-grey;
+    }
+}
+
+.item {
+    display: block;
+    flex-shrink: 0;
+    height: navbar-height;
+    line-height: navbar-height;
+    padding-left: calc((44px - 20px) / 2);
+    padding-right: calc((44px - 20px) / 2);
+    color: grey;
+    composes: font-size from './Mixins.css';
+    composes: uppercase-font from './Mixins.css';
+}
+
+.itemActive {
+    composes: item;
+    color: dark-grey;
+    border-bottom-color: blue;
+}
+
+.link {
+    composes: item;
+    line-height: calc(navbar-height + navbar-item-border-width);
+    color: grey;
+    border-bottom: navbar-item-border-width solid navbar-item-border;
+}
+
+.link:hover,
+.link:focus {
+    color: dark-grey;
+    border-bottom-color: blue;
+}

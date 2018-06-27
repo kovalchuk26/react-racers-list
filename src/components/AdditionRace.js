@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SubmitButton from './common/SubmitButton';
+import styles from '../styles/HomePage.css';
+import formStyles from '../styles/Forms.css';
 
 export class AdditionRace extends React.Component {
     constructor(props) {
@@ -49,34 +51,34 @@ export class AdditionRace extends React.Component {
 
     render() {
         return (
-            <div className='section'>
-                <form className='form-container'>
+            <div className={styles.section}>
+                <form className={formStyles.form}>
 
-                    <div className='form-row'>
-                        <div className='header'>Create race</div>
+                    <div className={formStyles.row}>
+                        <div className={formStyles.header}>Create race</div>
                     </div>
 
-                    <div className='form-row'>
-                        <div className='input-field__wrapper'>
+                    <div className={formStyles.row}>
+                        <div className={formStyles.input}>
                             <input type='text'
-                                   className='input-field'
+                                   className={formStyles.inputField}
                                    required
                                    ref={node => this.input = node}/>
-                            <span className="input-bar"></span>
-                            <label className='input-field__placeholder'>Venue</label>
+                            <span className={formStyles.inputBar}></span>
+                            <label className={formStyles.inputsPlaceholder}>Venue</label>
                         </div>
                     </div>
 
-                    <div className='form-row'>
-                        <div className='form-content-column'>
-                            <div className='title'>Serial number:</div>
+                    <div className={formStyles.row}>
+                        <div className={formStyles.columnsContent}>
+                            <div className={formStyles.title}>Serial number:</div>
                         </div>
-                        <div className='form-content-column'>
-                            <div className='title-value title'>{this.state.serialNumber}</div>
+                        <div className={formStyles.columnsContent}>
+                            <div className={formStyles.titlesValue}>{this.state.serialNumber}</div>
                         </div>
                     </div>
 
-                    <div className='form-row'>
+                    <div className={formStyles.row}>
                         <SubmitButton active={true}
                                       buttonText='Create Race'
                                       onClick={this.handleInput}/>

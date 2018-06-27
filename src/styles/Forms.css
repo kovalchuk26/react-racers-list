@@ -1,0 +1,210 @@
+@value grey, blue, dark-grey from './Variables.css';
+
+
+.form {
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: column nowrap;
+  margin: 0.5em;
+  box-sizing: border-box;
+  padding: 1.5em;
+  composes: box-shadow from './Mixins.css';
+}
+
+.form > .row:last-child {
+    padding-bottom: 0;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.columns > .row {
+    justify-content: flex-start;
+}
+
+.columns .columnsContent {
+    width: 50%;
+    justify-content: space-between;
+}
+
+.columns .input,
+.columns .select {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-bottom: 3em;
+}
+
+.selectInRow {
+  composes: row;
+}
+
+.selectInRow >  .columnsContent:nth-of-type(1) {
+  width: 30%;
+}
+
+.selectInRow > .columnsContent:nth-of-type(2) {
+    width: 70%;
+}
+
+
+.columnsContent {
+  display: flex;
+  width: 25%;
+  justify-content: flex-start;
+}
+
+.columnsContent:nth-of-type(2) {
+   justify-content: center;
+ }
+
+
+.column {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 45%;
+}
+
+.header {
+  color: blue;
+  composes: font-size from './Mixins.css';
+  composes: uppercase-font from './Mixins.css';
+
+}
+
+.title {
+  composes: font-size from './Mixins.css';
+  color: grey;
+}
+
+.titlesValue {
+   overflow: hidden;
+   word-break: break-word;
+  composes: title;
+   color: dark-grey;
+ }
+
+
+
+/*------INPUT------*/
+
+.inputField {
+  composes: font-size from './Mixins.css';
+  box-sizing: border-box;
+  padding-bottom: 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid grey;
+}
+
+.input {
+   position: relative;
+   width: 50%;
+}
+
+
+.inputsPlaceholder {
+   color: grey;
+  composes: font-size from './Mixins.css';
+   font-weight: normal;
+   position: absolute;
+   pointer-events: none;
+   top: -5px;
+  composes: input-transition from './Mixins.css';
+ }
+
+.inputField:focus {
+   outline: none;
+ }
+
+.inputField:focus ~ .inputsPlaceholder,
+.inputField:valid ~ .inputsPlaceholder {
+   top: -25px;
+   font-size: 0.8rem;
+   color: blue;
+ }
+
+.inputField:focus ~ .inputBar:before,
+.inputField:focus ~ .inputBar:after {
+   width: 50%;
+ }
+
+
+.inputBar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.inputBar:before,
+.inputBar:after {
+   content: '';
+   height: 2px;
+   width: 0;
+   bottom: 1px;
+   position: absolute;
+   background: blue;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+
+ }
+
+.inputBar:before {
+   left: 50%;
+ }
+
+.inputBar:after {
+   right: 50%;
+ }
+
+
+
+/*-----SELECT------*/
+
+.selectField {
+  background-color: transparent;
+  width: 100%;
+  padding-bottom: 5px;
+  composes: font-size from './Mixins.css';
+  border: none;
+}
+
+.select {
+  display: flex;
+  width: 50%;
+  box-sizing: border-box;
+  position: relative;
+  border-bottom: 1px solid grey;
+}
+
+.select:after {
+   position: absolute;
+   top: 0.45em;
+   right: 0.5em;
+   width: 0;
+   height: 0;
+   padding: 0;
+   content: '';
+   border-left: .25em solid transparent;
+   border-right: .25em solid transparent;
+   border-top: .375em solid grey;
+   pointer-events: none;
+ }
+
+.select .selectField {
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+
+.selectField:focus {
+   outline: none;
+ }

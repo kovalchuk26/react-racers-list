@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import '../../styles/Table.less';
+import styles from '../../styles/Table.css';
 
 export class Table extends React.Component {
     constructor(props) {
@@ -12,23 +12,23 @@ export class Table extends React.Component {
         const {headers, rowsData, firstCellAsLink} = this.props;
 
         return (
-            <div className='table'>
-                <div className='table-row table-head'>
+            <div className={styles.table}>
+                <div className={styles.head}>
                     {headers.map((header, index) =>
-                        <div key={index} className='table-cell'>{header}</div>
+                        <div key={index} className={styles.cell}>{header}</div>
                     )}
                 </div>
 
                 {rowsData.map(row =>
-                    <div key={row.id} className='table-row'>
+                    <div key={row.id} className={styles.row}>
 
                         {Object.keys(row).map((cell, index) => {
-                            return firstCellAsLink && index === 0 ?
-                                <div key={index} className={`table-cell ${firstCellAsLink ? 'table-cell__link' : ''}`}>
-                                    <Link to={`/races/${row.id}`}>{row[cell]}</Link>
-                                </div> :
-                                cell !== 'id' ? <div key={index} className='table-cell'>{row[cell]}</div> :
-                                    null;
+                                return firstCellAsLink && index === 0 ?
+                                    <div key={index} className={firstCellAsLink ? styles.link : styles.cell}>
+                                        <Link to={`/races/${row.id}`}>{row[cell]}</Link>
+                                    </div> :
+                                    cell !== 'id' ? <div key={index} className={styles.cell}>{row[cell]}</div> :
+                                        null;
                             }
                         )}
 

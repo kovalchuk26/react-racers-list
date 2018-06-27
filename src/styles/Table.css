@@ -1,0 +1,61 @@
+@value grey, blue, btn-light-grey, white, light-grey from './Variables.css';
+
+.table {
+    composes: box-shadow from './Mixins.css';
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: .8rem;
+    margin: 0.5rem;
+    line-height: 1.5;
+    flex: 1 1 auto;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.head {
+    composes: row;
+    composes: font-size from './Mixins.css';
+    composes: uppercase-font from './Mixins.css';
+}
+
+.cell {
+    color: grey;
+    display: flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0.5em;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0px;
+    white-space: nowrap;
+}
+
+.head > .cell {
+    white-space: normal;
+    justify-content: center;
+    background-color: blue;
+    color: btn-light-grey;
+}
+
+.link {
+    composes: cell;
+}
+
+.link > a:hover {
+    color: blue;
+}
+
+.row:nth-of-type(even) {
+    background-color: light-grey;
+}
+
+.row:nth-of-type(odd) {
+    background-color: white;
+}

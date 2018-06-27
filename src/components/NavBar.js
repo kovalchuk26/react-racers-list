@@ -1,16 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import '../styles/NavBar.less';
+import styles from '../styles/NavBar.css';
 
 const NavBar = () => (
-    <div className='navbar-wrapper'>
-        <div className='navbar'>
+    <div className={styles.wrapper}>
+        <div className={styles.navbar}>
 
-            <div className='navbar-icon'></div>
+            <div className={styles.icon}></div>
 
-            <nav role='navigation' className='navbar-list'>
-                <Link to='/' className='navbar-item navbar-item__link'>Home</Link>
-                <Link to='/races' className='navbar-item navbar-item__link'>Races List</Link>
+            <nav role='navigation' className={styles.list}>
+                <Link to='/' className={styles.link}>Home</Link>
+                <Link to='/races' className={styles.link}>Races List</Link>
             </nav>
 
         </div>
